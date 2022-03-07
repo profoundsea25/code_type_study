@@ -36,4 +36,10 @@ out/
 ### VS Code ###
 .vscode/
 
-.DS_Store.DS_Store
+.DS_Store
+._.DS_Store
+**/.DS_Store
+**/._.DS_Store
+
+h2/
+h2-2022-01-17.zip

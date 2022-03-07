@@ -1,0 +1,4 @@
+jpa:
+  properties:
+    logging.level:
+      org.hibernate.SQL: debug
