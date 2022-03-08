@@ -13,7 +13,7 @@ import java.util.List;
 @Inheritance(strategy = InheritanceType.SINGLE_TABLE)
 @DiscriminatorColumn(name = "dtype")
 @Getter @Setter
-public class Item {
+public abstract class Item {
 
     @Id @GeneratedValue
     @Column(name = "item_id")
@@ -21,22 +21,22 @@ public class Item {
 
     private String name;
     private int price;
-    private int stockQuality;
+    private int stockQuantity;
 
     @ManyToMany(mappedBy = "items")
     private List<Category> categories = new ArrayList<>();
 
     // 비즈니스 로직
     public void addStock(int quantity) {
-        this.stockQuality += quantity;
+        this.stockQuantity += quantity;
     }
 
 
-    public void removeStock(int quantity) {
-        int restStock = this.stockQuality - quantity;
+    public void removeStock(int orderQuantity) {
+        int restStock = this.stockQuantity - orderQuantity;
         if (restStock < 0) {
             throw new NotEnoughStockException("need more stock");
         }
-        this.stockQuality = restStock;
+        this.stockQuantity = restStock;
     }
 }
