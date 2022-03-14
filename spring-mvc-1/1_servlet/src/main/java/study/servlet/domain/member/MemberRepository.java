@@ -1,4 +1,4 @@
-package study.springmvc1_1_servlet.domain.member;
+package study.servlet.domain.member;
 
 import java.util.ArrayList;
 import java.util.HashMap;
